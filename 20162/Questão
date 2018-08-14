@@ -1,0 +1,25 @@
+Questão 1) (4,0) Implemente o N-ton Variante, variação do pattern Singleton que permite a criação de, no
+máximo, N diferentes instâncias de uma classe, sendo que M instâncias são criadas na inicialização da aplicação.
+A implementação deve ser realizada de modo que o código abaixo funcione conforme esperado.
+Nton.initialize(3, 5); // No mínimo três e no máximo cinco instâncias
+ // Três news já devem ocorrer nesta linha
+Nton i1 = Nton.getInstance(); // Obtém a 1a instância (sem new)
+Nton i2 = Nton.getInstance(); // Obtém a 2a instância (sem new)
+Nton i3 = Nton.getInstance(); // Obtém a 3a instância (sem new)
+Nton i4 = Nton.getInstance(); // Obtém a 4a instância (com new)
+Nton i5 = Nton.getInstance(); // Obtém a 5a instância (com new)
+Nton i6 = Nton.getInstance(); // Obtém a 1a instância
+if (i6 == i1) System.out.println(“OK”); // Deve exibir “OK”
+Nton i7 = Nton.getInstance(); // Obtém a 2a instância
+if (i7 == i2) System.out.println(“OK”); // Deve exibir “OK”
+OBS: note que a partir da (N+1)a
+ instância, o sistema deve retornar as instâncias já criadas em formato de
+rodízio, ou seja, na 4a invocação do getInstance() será retornada a 1a instância, na 5a a 2a , na 6a a 3a , na 7a a 1a , e
+assim sucessivamente.
+(1,0) – implementação correta do método initialize
+(1,0) – implementação correta do armazenamento das múltiplas instâncias
+(2,0) – implementação correta do método getInstance
+assim sucessivamente.
+(1,0) – implementação correta do método initialize
+(1,0) – implementação correta do armazenamento das múltiplas instâncias
+(2,0) – implementação correta do método getInstance
