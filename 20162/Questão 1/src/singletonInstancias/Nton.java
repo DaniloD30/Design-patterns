@@ -40,71 +40,34 @@ import java.util.List;
  * @author LEESE
  */
 public class Nton {
-    private  static  List<Nton> lista = new ArrayList<>();
-    private  static int min;
-    private  static int max;
-    private static Nton instance ;
-    private  static int count=0;
-    
-    private Nton(){}
-    
-    public static void initialize(int min, int max){
-        Nton.min = min; 
+     private Nton(){}
+   
+     public static void initialize(int min, int max){
+        Nton.min = min;
         Nton.max = max;
+        Nton.instancias = new ArrayList<>();
         for(int i=0;i<min;i++){
-            Nton.lista.add(new Nton());// cria as 3 intancias e deixa a lista com 3 posições
+            Nton.instancias.add(new Nton());
         }
-    }
-    
-    public static int getSize(){
-        return Nton.lista.size();
     }
     
     public static Nton getInstance(){
-       if(Nton.count < Nton.min){
-           return Nton.lista.get(Nton.count++);
+        if(Nton.count < Nton.min)
+            return Nton.instancias.get(count++);
+        if(Nton.instancias.size() < Nton.max){
+            Nton.instancias.add(new Nton());
+            Nton.count = Nton.instancias.size();
+            return Nton.instancias.get(Nton.instancias.size()-1);
         }
-        if(Nton.count < Nton.max){
-            Nton.lista.add(new Nton());
-            Nton.count = Nton.getSize(); 
-            return Nton.lista.get(Nton.count-1);
-        }
-        if((Nton.count) == Nton.max){
-             Nton.count = 0;
-        }
-        return Nton.lista.get(count++);
+        if(Nton.count == Nton.max)
+            Nton.count = 0;
+        return Nton.instancias.get(Nton.count++);
     }
     
-
-   
-
-    
-    
-    
-}
-
-    
-    public void initialize(int min, int max){
-        this.min = min; 
-        this.max = max;
-        for(int i=0;i<this.min;i++){
-            lista.add(new Nton());
-        }
-    }
-   public static Nton getInstance(){
-        if(lista.size() < this.max){
-            lista.add(new Nton());
-            return lista.get(lista.size());
-            //return new Nton();
-        }
-        if(this.count  == this.max){
-            this.count = 0;
-        }
-        return lista.get(count++);
-    }
-    
-
-   
+    private static int max;
+    private static int min;
+    private static List<Nton> instancias;
+    private static int count = 0;
 
     
     
