@@ -15,10 +15,8 @@ import java.util.HashMap;
  * @author LEESE
  */
 public class FlexibleFactory {
-     private HashMap<String,IMergeable> hashMergeable;
-     private HashMap<String,ISerializable> hashSerializable;
     
-    public FlexibleFactory(){
+     public FlexibleFactory(){
         this.hashMergeable = new HashMap<>();
         this.hashSerializable = new HashMap<>();
     }
@@ -44,17 +42,6 @@ public class FlexibleFactory {
                 this.hashMergeable.put(name,(IMergeable) proto);
          
     }
-    
-    
-    //addPrototype
-   /*STR".equalsIgnoreCase("str")
-    IPrototype* GenericFactory::create(string name){
-
-    if(_prototypes.count(name))
-
-        return _prototypes[name]->clone();
-
-    return nullptr;
-    */
-
+     private HashMap<String,IMergeable> hashMergeable;
+     private HashMap<String,ISerializable> hashSerializable;
 }
