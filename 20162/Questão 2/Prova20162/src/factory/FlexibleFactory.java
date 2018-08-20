@@ -27,12 +27,14 @@ public class FlexibleFactory {
         }
         return null;
     }
+    
      public ISerializable createSerializable(String name){
         if(this.hashSerializable.containsKey(name)){
             return this.hashSerializable.get(name).clonar();
         }
         return null;
     }
+    
     public void addPrototype(String nameType, String name,IPrototype proto){
         if(nameType.equalsIgnoreCase("Serializable"))
             if(!this.hashSerializable.containsKey(name))
@@ -42,6 +44,7 @@ public class FlexibleFactory {
                 this.hashMergeable.put(name,(IMergeable) proto);
          
     }
+    
      private HashMap<String,IMergeable> hashMergeable;
      private HashMap<String,ISerializable> hashSerializable;
 }
